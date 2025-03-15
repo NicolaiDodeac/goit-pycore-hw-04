@@ -5,7 +5,7 @@ def total_salary(path):
             salaries = []
             for el in fh.readlines():
                 lines_amount +=1
-                _, salary = el.strip().split(",")
+                _, salary = el.strip().rsplit(",")
                 salaries.append(float(salary))
         total = sum(salaries)
         average = total / lines_amount if lines_amount else 0
@@ -14,5 +14,5 @@ def total_salary(path):
         print(f"Файл не знайдено: {path}")
         return "?", "?"
 
-total, average = total_salary("./salary_file.txt")
+total, average = total_salary("./task_1/salary_file.txt")
 print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
